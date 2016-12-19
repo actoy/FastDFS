@@ -103,25 +103,12 @@
 
 #### 文件上传
 
-```sequence
-Client->Tracker: Client询问Tracker server上传到的Storage Server
-Note right of Tracker: Tracker通过负载均衡调度分配Storage server
-Tracker-->Client: 返回Storage的Ip addr和port
-Client->Storage: file content And meta data
-Note right of Storage: Storage server生成文件Id 
-Storage-->Client: file id
-```
+![](./fastDFS1.png)
 
 #### 文件下载
 
-```sequence
-Client->Tracker: Client询问可以下载指定文件的Storage server，file Id
-Note right of Tracker: Tracker通过负载均衡调度分配Storage server
-Tracker-->Client: 返回Storage的Ip addr和port
-Client->Storage: file id 
-Note right of Storage: Storage server根据Id查找文件 
-Storage-->Client: file content
-```
+![](./fastDFS2.png)
+
 ## 文件同步问题及FastDFS的解决方案
 
 ### 文件同步延迟问题的提出
